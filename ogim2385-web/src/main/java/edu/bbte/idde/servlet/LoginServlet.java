@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
                 <form method='POST'>
                     <input name='username' placeholder='Username'><br>
                     <input name='password' type='password' placeholder='Password'><br>
-                    <button type='submit'>Login</button>
+                    <button type='submit'>LOGIN</button>
                 </form>
                 """);
     }
