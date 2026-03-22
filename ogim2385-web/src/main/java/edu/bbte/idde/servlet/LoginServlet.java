@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.getWriter().println("""
                 <form method='POST'>
-                    <input name='username' placeholder='Username'><br>
+                    <input name='username' placeholder='UNAME'><br>
                     <input name='password' type='password' placeholder='Password'><br>
                     <button type='submit'>LOGIN</button>
                 </form>
