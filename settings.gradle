@@ -1,0 +1,5 @@
+rootProject.name = 'ogim2385-idde'
+
+include 'ogim2385-backend'
+include 'ogim2385-web'
+include 'ogim2385-frontend'

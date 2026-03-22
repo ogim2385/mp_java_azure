@@ -1,0 +1,10 @@
+<ApplicationConfig>
+    <profile>jdbc</profile>
+    <jdbc>
+        <url>jdbc:mysql://localhost:3306/webshop</url>
+        <username>root</username>
+        <password>root</password>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <poolSize>10</poolSize>
+    </jdbc>
+</ApplicationConfig>

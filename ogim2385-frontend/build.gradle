@@ -1,0 +1,18 @@
+plugins {
+    id 'application'
+}
+
+apply from: "$rootDir/lint.gradle"
+
+group = 'edu.bbte.idde'
+version = '1.0.0'
+
+application{
+    mainClass = 'edu.bbte.idde.presentation.OrderUI'
+}
+
+dependencies {
+    implementation project(':ogim2385-backend')
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.5.13'
+}
