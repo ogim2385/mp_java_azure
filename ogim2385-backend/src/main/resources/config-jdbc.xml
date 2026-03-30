@@ -1,9 +1,9 @@
 <ApplicationConfig>
     <profile>jdbc</profile>
     <jdbc>
-        <url>jdbc:mysql://localhost:3306/webshop</url>
-        <username>root</username>
-        <password>root</password>
+        <url>jdbc:mysql://mp-db-orban-gergo-server.mysql.database.azure.com:3306/webshop?useSSL=true&amp;requireSSL=true&amp;serverTimezone=UTC</url>
+        <username>vdsdtxhrwf</username>
+        <password>Alma123$</password>
         <driver>com.mysql.cj.jdbc.Driver</driver>
         <poolSize>10</poolSize>
     </jdbc>
