@@ -1,0 +1,38 @@
+name: Build and deploy JAR to Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - lab3
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build fat jar
+        run: ./gradlew clean :ogim2385-web:shadowJar
+
+      - name: Rename jar to app.jar
+        run: cp ogim2385-web/build/libs/*-all.jar app.jar
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: java-orban-gergo
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: app.jar
