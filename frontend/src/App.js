@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 const API = 'https://mp-db-orban-gergo-embvb5efagg2ggbe.spaincentral-01.azurewebsites.net/orders';
@@ -14,23 +14,22 @@ function App() {
     shippingAddress: ''
   });
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    loadOrders();
-  }, []);
-
   function showMessage(text, type) {
     setMessage(text);
     setMessageType(type);
     setTimeout(() => setMessage(null), 3000);
   }
 
-  function loadOrders() {
+  const loadOrders = useCallback(() => {
     fetch(API)
         .then(res => res.json())
         .then(data => setOrders(data))
         .catch(() => showMessage('Error loading orders', 'error'));
-  }
+  }, []);
+
+  useEffect(() => {
+    loadOrders();
+  }, [loadOrders]);
 
   function createOrder() {
     if (!form.orderDate || !form.price || !form.shippingAddress) {
