@@ -14,6 +14,7 @@ function App() {
     shippingAddress: ''
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadOrders();
   }, []);
